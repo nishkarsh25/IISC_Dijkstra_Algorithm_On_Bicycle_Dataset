@@ -40,21 +40,23 @@ The function `Part2` is a Python function that takes a DataFrame `df` as input a
 1. Convert "started_at" column to datetime data type using `pd.to_datetime()` function.
 2. Filter DataFrame to keep only rows where "started_at" time is between 6:00 AM and 6:00 PM or exactly 6:00 PM using hour, minute, and second components of "started_at" column.
 <img width="700" alt="image" src="https://user-images.githubusercontent.com/117291117/232607294-5af3dcb8-23d5-46f2-ae2e-10404b1484ae.png">
-3. Merge filtered DataFrame with itself, joining on "end_lat" and "end_lng" columns of the first instance, and "start_lat" and "start_lng" columns of the second instance, using `pd.merge()` function.
+3. Merge filtered DataFrame with itself, joining on "end_lat" and "end_lng" columns of the first instance, and "start_lat" and "start_lng" columns of the second    
+   instance, using `pd.merge()` function.
+  
 <img width="700" alt="image" src="https://user-images.githubusercontent.com/117291117/232607523-3b42acf1-885f-4592-bdf2-1d144ced0704.png">
 
-4. Filter merged DataFrame to keep only pairs where "ended_at" time of the first trip is earlier than or equal to "started_at" time of the second trip.
+  4. Filter merged DataFrame to keep only pairs where "ended_at" time of the first trip is earlier than or equal to "started_at" time of the second trip.
 <img width="700" alt="image" src="https://user-images.githubusercontent.com/117291117/232607613-cb3b1764-6146-4359-b196-11553829412b.png">
+  
+  5. Calculate total number of feasible pairs by counting length of filtered DataFrame.
+  6. Filter feasible pairs DataFrame again to keep only rows where either "trip_id_x" or "trip_id_y" is equal to 4611.
+  
+ <img width="700" alt="image" src="https://user-images.githubusercontent.com/117291117/232608075-dbb2ae7e-67c1-40cc-9bae-bb3a4056e37f.png">
 
-5. Calculate total number of feasible pairs by counting length of filtered DataFrame.
-
-
-6. Filter feasible pairs DataFrame again to keep only rows where either "trip_id_x" or "trip_id_y" is equal to 4611.
-<img width="700" alt="image" src="https://user-images.githubusercontent.com/117291117/232608075-dbb2ae7e-67c1-40cc-9bae-bb3a4056e37f.png">
-7. Create a new DataFrame containing selected columns from the filtered feasible pairs DataFrame.
+  7. Create a new DataFrame containing selected columns from the filtered feasible pairs DataFrame.
 <img width="700" alt="image" src="https://user-images.githubusercontent.com/117291117/232608405-faeb6310-6e4f-443f-ae92-d98a55655cb1.png">
 
-8. Return the new DataFrame as the final output of the function.
+  8. Return the new DataFrame as the final output of the function.
 ### Function Analysis Report Part3
 
 The function `Part3` is a Python function that takes a DataFrame `df` as input and performs various operations to analyze a dataset containing information about bicycle trips in a bicycle-sharing system. Let's go through the code step by step to understand what it does:
